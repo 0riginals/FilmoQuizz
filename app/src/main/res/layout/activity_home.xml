@@ -45,9 +45,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="159dp"
-        android:layout_height="118dp"
+    <ImageButton
+        android:layout_width="217dp"
+        android:layout_height="156dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/encyclopedie"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,9 +66,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/filmoQuizz" />
 
-    <ImageView
-        android:layout_width="159dp"
-        android:layout_height="118dp"
+    <ImageButton
+        android:id="@+id/playQuizz"
+        android:layout_width="246dp"
+        android:layout_height="162dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/quizz"
         app:layout_constraintEnd_toEndOf="parent"
