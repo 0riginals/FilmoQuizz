@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">FilmoQuizz</string>
+    <string name="main_welcome">FilmoQuizz contient une large bibliothèque de film avec leur synopsis. Inscrivez-vous afin de tester vos connaissances, sur notre super Quizz et découvrez notre bibliothèque de films!</string>
+    <string name="text_login">CONNEXION</string>
+    <string name="text_username">PSEUDO</string>
+    <string name="text_password">MOT DE PASSE</string>
+    <string name="text_confirm_password">CONFIRMER</string>
+    <string name="text_register">ENREGISTRER</string>
 </resources>

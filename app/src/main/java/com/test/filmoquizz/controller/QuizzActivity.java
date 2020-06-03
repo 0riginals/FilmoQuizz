@@ -1,8 +1,10 @@
-package com.test.filmoquizz;
+package com.test.filmoquizz.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.test.filmoquizz.R;
 
 public class QuizzActivity extends AppCompatActivity {
 
