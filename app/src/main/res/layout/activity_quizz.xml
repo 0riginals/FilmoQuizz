@@ -1,92 +1,85 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".controller.QuizzActivity">
-   <LinearLayout
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal">
-    <ImageView
-        android:id="@+id/filmoQuizzLogo"
-        android:layout_width="96dp"
-        android:layout_height="82dp"
-        android:orientation="horizontal"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toStartOf="@+id/filmoQuizz"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/filmoQuizz"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:padding="20dp"
-        android:singleLine="false"
-        android:text="FilmoQuizz"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/filmoQuizzLogo"/>
-   </LinearLayout>
+        android:orientation="horizontal">
 
-<TextView
-android:id="@+id/questionQuizzActivity"
-android:layout_width="379dp"
-android:layout_height="29dp"
-android:layout_marginStart="15dp"
-android:layout_marginTop="5dp"
-android:layout_marginEnd="15dp"
-android:layout_marginBottom="5dp"
-android:layout_weight="2"
-android:gravity="center"
-android:text="Question?"
-android:textColor="@color/colorPrimary"
-android:textSize="18sp"
-android:textStyle="bold"></TextView>
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="82dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal"
+            android:src="@drawable/logo" />
 
-<ImageView
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:src="@drawable/encyclopedie"
-/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            android:singleLine="false"
+            android:text="@string/app_name"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-<Button
-android:id="@+id/answer1ButtonQuizzActivity"
-android:layout_width="match_parent"
-android:layout_height="0dp"
-android:layout_margin="5dp"
-android:layout_weight="1"
-android:textColor="@color/colorAccent"
-android:background="@android:color/white"
-android:textSize="20sp"
-android:text="Answer1" />
+    <TextView
+        android:id="@+id/activity_quizz_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:text="Question?"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"></TextView>
 
-<Button
-android:id="@+id/answer2ButtonQuizzActivity"
-android:layout_width="match_parent"
-android:layout_height="0dp"
-android:layout_margin="5dp"
-android:layout_weight="1"
-android:textColor="@color/colorAccent"
-android:background="@android:color/white"
-android:textSize="20sp"
-android:text="Answer2"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/encyclopedie" />
 
-<Button
-android:id="@+id/answer3ButtonQuizzActivity"
-android:layout_width="match_parent"
-android:layout_height="0dp"
-android:layout_margin="5dp"
-android:layout_weight="1"
-android:textColor="@color/colorAccent"
-android:background="@android:color/white"
-android:textSize="20sp"
-android:text="Answer3"/>
+    <Button
+        android:id="@+id/activity_quizz_answer1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:text="Answer1"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/activity_quizz_answer2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:text="Answer2"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/activity_quizz_answer3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:text="Answer3"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp" />
 
 </LinearLayout>
