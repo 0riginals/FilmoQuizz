@@ -19,7 +19,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        playQuizzButton = (ImageButton) findViewById(R.id.playQuizz);
+        playQuizzButton = (ImageButton) findViewById(R.id.activity_home_play_quizz);
 
 
         playQuizzButton.setOnClickListener(new View.OnClickListener() {
