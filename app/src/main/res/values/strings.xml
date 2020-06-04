@@ -6,4 +6,6 @@
     <string name="text_password">MOT DE PASSE</string>
     <string name="text_confirm_password">CONFIRMER</string>
     <string name="text_register">ENREGISTRER</string>
+    <string name="home_movies_list">Venez découvrir notre large bibliothèque de films</string>
+    <string name="home_quizz">Testez vos connaissance sur notre bibliothèque de films à travers notre super Quizz !</string>
 </resources>
