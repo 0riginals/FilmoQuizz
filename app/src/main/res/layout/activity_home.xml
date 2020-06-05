@@ -36,8 +36,7 @@
             android:layout_marginTop="30dp"
             android:padding="20dp"
             android:text="@string/home_movies_list"
-            android:textSize="16dp" />
-
+            android:textSize="16sp" />
         <ImageButton
             android:id="@+id/activity_home_movies_list"
             android:layout_width="217dp"
@@ -45,15 +44,13 @@
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
             android:src="@drawable/encyclopedie"/>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:padding="20dp"
             android:text="@string/home_quizz"
-            android:textSize="16dp"/>
-
+            android:textSize="16sp"/>
         <ImageButton
             android:id="@+id/activity_home_play_quizz"
             android:layout_width="246dp"
