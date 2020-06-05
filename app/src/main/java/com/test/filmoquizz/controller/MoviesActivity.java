@@ -1,12 +1,16 @@
 package com.test.filmoquizz.controller;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.test.filmoquizz.R;
+
 import java.util.LinkedList;
+
 import model.Movie;
 
 public class MoviesActivity extends AppCompatActivity {

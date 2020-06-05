@@ -2,11 +2,10 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".controller.MainActivity">
         <LinearLayout
@@ -69,6 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
+                android:inputType="textPassword"
                 android:hint="@string/text_password" />
             <Button
                 android:id="@+id/activity_main_login_submit"
@@ -104,12 +104,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
+                android:inputType="textPassword"
                 android:hint="@string/text_password" />
             <EditText
                 android:id="@+id/activity_main_register_pseudo_confirm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
+                android:inputType="textPassword"
                 android:hint="@string/text_confirm_password" />
             <Button
                 android:id="@+id/activity_main_register_submit"
