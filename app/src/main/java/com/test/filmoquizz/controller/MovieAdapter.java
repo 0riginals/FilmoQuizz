@@ -6,42 +6,47 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.squareup.picasso.Picasso;
 
 import com.test.filmoquizz.R;
-
-import java.util.LinkedList;
-
 import com.test.filmoquizz.model.Movie;
 
+import java.util.ArrayList;
 
+/**
+ * Created by Paul VINOT, Antoine COLPAERT, Yuting JIN
+ */
 public class MovieAdapter extends ArrayAdapter<Movie> {
-    private final Context _context;
-    private LinkedList<Movie> _movies;
+   private Context context;
+   private ArrayList<Movie> movies;
 
-    public MovieAdapter(Context context, int resource, LinkedList<Movie> movies) {
-        super(context, resource, movies);
-        _context = context;
-        _movies = movies;
-    }
+   private TextView titleView;
+   private ImageView imageView;
+   private TextView overviewView;
 
-    @Override
+   public MovieAdapter(Context context, int resource, ArrayList<Movie> movies) {
+       super(context, resource, movies);
+       this.context = context;
+       this.movies = movies;
+   }
+
+   @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.activity_movie_item, parent, false);
-        } else {
-            convertView = (LinearLayout) convertView;
-        }
+       if(convertView == null) {
+           LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+           convertView = inflater.inflate(R.layout.activity_movie_item, parent, false);
+       }
 
-        ImageView imageMovie = (ImageView) convertView.findViewById(R.id.activity_movie_item_image);
-        imageMovie.setBackgroundResource(_movies.get(position).getImage());
+       titleView = (TextView) convertView.findViewById(R.id.activity_movie_detail_title);
+       imageView = (ImageView) convertView.findViewById(R.id.activity_movie_detail_img);
+       overviewView = (TextView) convertView.findViewById(R.id.activity_movie_detail_overview);
 
-        TextView titleMovie = (TextView) convertView.findViewById(R.id.activity_movie_item_title);
-        titleMovie.setText(_movies.get(position).getTitle());
-        titleMovie.setTag(_movies.get(position).getTitle());
+       titleView.setText(movies.get(position).getTitle());
+       Picasso.get().load(movies.get(position).getUrlImage()).into(imageView);
+       overviewView.setText(movies.get(position).getOverview());
 
-        return convertView;
-    }
+       return convertView;
+   }
+
 }

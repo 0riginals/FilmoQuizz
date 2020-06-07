@@ -1,20 +1,48 @@
 package com.test.filmoquizz.model;
 
+/**
+ * Created by Paul VINOT, Antoine COLPAERT, Yuting JIN
+ */
 public class Movie {
+    private int id;
     private String title;
-    private int image;
-    private String description;
+    private String urlImage;
+    private String overview;
     private String director;
     private int year;
     private String actors;
+    private int image;
 
-    public Movie(String title, int image, String description, String director, int year, String actors) {
+    private String BASE_URL_IMG = "https://image.tmdb.org/t/p/original";
+
+    public Movie() {
+        // Constructeur par défault, vide, utile pour ORMLite
+    }
+
+    // Premier constructeur qui nous permettra l'apercu dans la liste des films
+    public Movie(int id, String title, String urlImage, String overview) {
+        this.id = id;
+        this.urlImage = BASE_URL_IMG + urlImage;
         this.title = title;
-        this.image = image;
-        this.description = description;
+        this.overview = overview;
+    }
+
+    public Movie(String title, String urlImage, String overview, String director, int year, String actors, int image) {
+        this.title = title;
+        this.urlImage = urlImage;
+        this.overview = overview;
         this.director = director;
         this.year = year;
         this.actors = actors;
+        this.image = image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -25,20 +53,20 @@ public class Movie {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getOverview() {
+        return overview;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 
-    public int getImage() {
-        return image;
+    public String getUrlImage() {
+        return urlImage;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 
     public String getDirector() {
@@ -63,5 +91,13 @@ public class Movie {
 
     public void setActors(String actors) {
         this.actors = actors;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }

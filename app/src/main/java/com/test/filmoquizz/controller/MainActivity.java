@@ -9,13 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
-import com.j256.ormlite.dao.CloseableIterator;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import com.test.filmoquizz.R;
 import com.test.filmoquizz.dao.DatabaseHelper;
 import com.test.filmoquizz.model.User;
-
 
 public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
@@ -69,6 +67,7 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
                 for(User user : userDao) {
                     if(user.getPseudo().equals(pseudo) && user.getPassword().equals(password)) {
                         preferences.edit().putInt("user_id", user.getId()).apply();
+                        preferences.edit().putString("user_name", user.getPseudo()).apply();
                         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(intent);
                         return;
@@ -102,6 +101,7 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
                         System.out.println("User id nouvellement créé: " + user.getId());
                         // On le stock dans les préférences pour pouvoir le retrouver dans l'application et faire des recherches croisées dans notre base de donnée.
                         preferences.edit().putInt("user_id", user.getId()).apply();
+                        preferences.edit().putString("user_name", user.getPseudo()).apply();
                         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(intent);
                     } catch(RuntimeException e) {

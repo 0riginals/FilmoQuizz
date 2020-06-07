@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.test.filmoquizz.R;
 
+/**
+ * Created by Paul VINOT, Antoine COLPAERT, Yuting JIN
+ */
 public class HomeActivity extends AppCompatActivity {
 
     // Les préferences utilisateurs

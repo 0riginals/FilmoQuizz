@@ -11,7 +11,6 @@ public class User {
     public static final String PSEUDO = "pseudo";
     public static final String PASSWORD = "password";
 
-
     @DatabaseField(generatedId = true)
     private int id;
     @DatabaseField(columnName = PSEUDO, canBeNull = false, unique = true)
