@@ -1,4 +1,4 @@
-package model;
+package com.test.filmoquizz.model;
 
 public class Movie {
     private String title;

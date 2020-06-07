@@ -13,7 +13,7 @@ import com.test.filmoquizz.R;
 
 import java.util.LinkedList;
 
-import model.Movie;
+import com.test.filmoquizz.model.Movie;
 
 
 public class MovieAdapter extends ArrayAdapter<Movie> {
