@@ -8,4 +8,5 @@
     <string name="text_register">ENREGISTRER</string>
     <string name="home_movies_list">Venez découvrir notre large bibliothèque de films</string>
     <string name="home_quizz">Testez vos connaissance sur notre bibliothèque de films à travers notre super Quizz !</string>
+    <string name="movie_db_api_key">f68f576bcdf9846f104b46cb942dd9ed</string>
 </resources>
