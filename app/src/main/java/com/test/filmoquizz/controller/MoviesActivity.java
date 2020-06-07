@@ -1,5 +1,6 @@
 package com.test.filmoquizz.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -62,12 +63,12 @@ public class MoviesActivity extends AppCompatActivity {
                     for (int i = 0; i < maxResult; i++) {
                         JSONObject result = jsonArray.getJSONObject(i);
                         String title = result.getString("title");
-                        int filmId = result.getInt("id");
+                        int movieId = result.getInt("id");
                         String overview = result.getString("overview");
                         String urlImage = result.getString("poster_path");
                         if(overview.isEmpty())
                             overview = "Ce film ne possède pas encore de description";
-                        movies.add(new Movie(filmId, title, urlImage, overview));
+                        movies.add(new Movie(movieId, title, urlImage, overview));
                     }
                     MovieAdapter adapter = new MovieAdapter(MoviesActivity.this, R.layout.activity_movie_item, movies);
                     listView.setAdapter(adapter);
@@ -75,7 +76,9 @@ public class MoviesActivity extends AppCompatActivity {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            System.out.println("Jaja");
+                            Intent intent = new Intent(MoviesActivity.this, MovieDetailActivity.class);
+                            intent.putExtra("id", movies.get(position).getId());
+                            startActivity(intent);
                         }
                     });
 

@@ -23,7 +23,7 @@
         android:orientation="vertical"
         android:layout_height="match_parent">
         <TextView
-            android:id="@+id/activity_movie_detail_description"
+            android:id="@+id/activity_movie_detail_overview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
