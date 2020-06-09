@@ -61,6 +61,7 @@ public class QuizzActivity extends AppCompatActivity implements View.OnClickList
         questions = new ArrayList<>();
 
         questionView = (TextView) findViewById(R.id.activity_quizz_question);
+        imageView = (ImageView) findViewById(R.id.activity_quizz_image);
         answer1View = (Button) findViewById(R.id.activity_quizz_answer1);
         answer2View = (Button) findViewById(R.id.activity_quizz_answer2);
         answer3View = (Button) findViewById(R.id.activity_quizz_answer3);
@@ -72,8 +73,7 @@ public class QuizzActivity extends AppCompatActivity implements View.OnClickList
         queue = Volley.newRequestQueue(QuizzActivity.this);
 
         this.generateQuestions();
-        //currentQuestion = questionBank.getQuestion();
-        //displayQuestion(currentQuestion);
+
     }
 
     @Override
@@ -111,13 +111,7 @@ public class QuizzActivity extends AppCompatActivity implements View.OnClickList
                         // On créer notre question et on vient hydrater sa liste de choix après
                         Question question = new Question(movieId, urlImage, title);
                         findOtherTitles(question);
-                        questions.add(question);
                     }
-                    System.out.println("Nos questions: " + questions);
-                    System.out.println("nbr de questions: " + questions.size());
-                    // Au final tout le traitement se fait après la réponse de celui là et la recherche des autres titres similaires
-                    // TODO: compliqué le questionBank pour le moment, a voir avec du sommeil demain
-                    questionBank = new QuestionBank(questions);
                 }catch(JSONException e) {
                     e.printStackTrace();
                 }
@@ -129,6 +123,7 @@ public class QuizzActivity extends AppCompatActivity implements View.OnClickList
             }
         });
         queue.add(request);
+        System.out.println("Affiché après toutes les requetes");
     }
 
     private void findOtherTitles(final Question question) {
@@ -149,6 +144,10 @@ public class QuizzActivity extends AppCompatActivity implements View.OnClickList
                         System.out.println("Similarité trouvé: " + title);
                         question.addChoice(title);
                     }
+                    questions.add(question);
+                    questionBank = new QuestionBank(questions);
+                    currentQuestion = questionBank.getQuestion();
+                    displayQuestion(currentQuestion);
                 } catch(JSONException e) {
                     e.printStackTrace();
                 }
@@ -161,5 +160,4 @@ public class QuizzActivity extends AppCompatActivity implements View.OnClickList
         });
         queue.add(request);
     }
-
 }
