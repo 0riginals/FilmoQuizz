@@ -13,7 +13,7 @@ public class Movie {
     private String actors;
     private int image;
 
-    private String BASE_URL_IMG = "https://image.tmdb.org/t/p/original";
+    private final static String BASE_URL_IMG = "https://image.tmdb.org/t/p/original";
 
     public Movie() {
         // Constructeur par défault, vide, utile pour ORMLite

@@ -19,7 +19,6 @@ import com.test.filmoquizz.model.Movie;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
