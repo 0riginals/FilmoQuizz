@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,8 +35,11 @@ public class MoviesActivity extends AppCompatActivity {
     private static final String API_KEY = "?api_key=f68f576bcdf9846f104b46cb942dd9ed";
     private static final String LANGUAGE = "&language=fr-FR";
 
+    private String filterSearch = "";
+
     private ArrayList<Movie> movies;
     private ListView listView;
+    private SearchView searchView;
 
     private RequestQueue queue;
 
@@ -45,13 +49,31 @@ public class MoviesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movies);
         movies = new ArrayList<>();
         listView = (ListView) findViewById(R.id.activity_movies_list);
+        searchView = (SearchView) findViewById(R.id.searchView);
         queue = Volley.newRequestQueue(MoviesActivity.this);
-        this.fetchMovies();
+        this.fetchMovies(filterSearch);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            // 当点击搜索按钮时触发该方法
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            // 当搜索内容改变时触发该方法
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                fetchMovies(newText);
+                return false;
+            }
+        });
     }
 
-    private void fetchMovies() {
-        String popularMovies = "movie/popular";
-        String url = BASE_URL + popularMovies + API_KEY + LANGUAGE + "&page=1";
+    private void fetchMovies(String searchMovie) {
+        if (searchMovie.isEmpty()) filterSearch = "movie/popular";
+        else
+            filterSearch = "search/movie";
+        String url = BASE_URL + filterSearch + API_KEY + LANGUAGE + "&page=1" + "&query=" + searchMovie;
         System.out.println("GET à l'adresse: " + url);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -60,13 +82,14 @@ public class MoviesActivity extends AppCompatActivity {
                 try {
                     JSONArray jsonArray = response.getJSONArray("results");
                     maxResult = Math.min(jsonArray.length(), 10);
+                    movies.clear();
                     for (int i = 0; i < maxResult; i++) {
                         JSONObject result = jsonArray.getJSONObject(i);
                         String title = result.getString("title");
                         int movieId = result.getInt("id");
                         String overview = result.getString("overview");
                         String urlImage = result.getString("poster_path");
-                        if(overview.isEmpty())
+                        if (overview.isEmpty())
                             overview = "Ce film ne possède pas encore de description";
                         movies.add(new Movie(movieId, title, urlImage, overview));
                     }
@@ -82,7 +105,7 @@ public class MoviesActivity extends AppCompatActivity {
                         }
                     });
 
-                } catch(JSONException e) {
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
